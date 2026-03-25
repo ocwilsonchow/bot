@@ -78,7 +78,7 @@ export default $config({
     // Cron Job to keep the API Gateway alive
     new sst.aws.CronV2("CronJob", {
       function: cron.arn,
-      schedule: "rate(1 minute)", // Run every 1 minutes
+      schedule: "rate(9 minutes)", // Run every 9 minutes
     })
   },
 })
