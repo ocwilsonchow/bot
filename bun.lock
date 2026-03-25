@@ -5,21 +5,59 @@
       "name": "bot",
       "dependencies": {
         "hono": "^4.12.9",
+        "sst": "4.5.8",
       },
       "devDependencies": {
+        "@types/aws-lambda": "8.10.161",
         "@types/bun": "latest",
       },
     },
   },
   "packages": {
+    "@types/aws-lambda": ["@types/aws-lambda@8.10.161", "", {}, "sha512-rUYdp+MQwSFocxIOcSsYSF3YYYC/uUpMbCY/mbO21vGqfrEYvNSoPyKYDj6RhXXpPfS0KstW9RwG3qXh9sL7FQ=="],
+
     "@types/bun": ["@types/bun@1.3.11", "", { "dependencies": { "bun-types": "1.3.11" } }, "sha512-5vPne5QvtpjGpsGYXiFyycfpDF2ECyPcTSsFBMa0fraoxiQyMJ3SmuQIGhzPg2WJuWxVBoxWJ2kClYTcw/4fAg=="],
 
     "@types/node": ["@types/node@25.5.0", "", { "dependencies": { "undici-types": "~7.18.0" } }, "sha512-jp2P3tQMSxWugkCUKLRPVUpGaL5MVFwF8RDuSRztfwgN1wmqJeMSbKlnEtQqU8UrhTmzEmZdu2I6v2dpp7XIxw=="],
+
+    "aws4fetch": ["aws4fetch@1.0.18", "", {}, "sha512-3Cf+YaUl07p24MoQ46rFwulAmiyCwH2+1zw1ZyPAX5OtJ34Hh185DwB8y/qRLb6cYYYtSFJ9pthyLc0MD4e8sQ=="],
 
     "bun-types": ["bun-types@1.3.11", "", { "dependencies": { "@types/node": "*" } }, "sha512-1KGPpoxQWl9f6wcZh57LvrPIInQMn2TQ7jsgxqpRzg+l0QPOFvJVH7HmvHo/AiPgwXy+/Thf6Ov3EdVn1vOabg=="],
 
     "hono": ["hono@4.12.9", "", {}, "sha512-wy3T8Zm2bsEvxKZM5w21VdHDDcwVS1yUFFY6i8UobSsKfFceT7TOwhbhfKsDyx7tYQlmRM5FLpIuYvNFyjctiA=="],
 
+    "jose": ["jose@5.2.3", "", {}, "sha512-KUXdbctm1uHVL8BYhnyHkgp3zDX5KW8ZhAKVFEfUbU2P8Alpzjb+48hHvjOdQIyPshoblhzsuqOwEEAbtHVirA=="],
+
+    "lru-cache": ["lru-cache@6.0.0", "", { "dependencies": { "yallist": "^4.0.0" } }, "sha512-Jo6dJ04CmSjuznwJSS3pUeWmd/H0ffTlkXXgwZi+eq1UCmqQwCh+eLsYOYCwY991i2Fah4h1BEMCx4qThGbsiA=="],
+
+    "object-hash": ["object-hash@2.2.0", "", {}, "sha512-gScRMn0bS5fH+IuwyIFgnh9zBdo4DV+6GhygmWM9HyNJSgS0hScp1f5vjtm7oIIOiT9trXrShAkLFSc2IqKNgw=="],
+
+    "oidc-token-hash": ["oidc-token-hash@5.2.0", "", {}, "sha512-6gj2m8cJZ+iSW8bm0FXdGF0YhIQbKrfP4yWTNzxc31U6MOjfEmB1rHvlYvxI1B7t7BCi1F2vYTT6YhtQRG4hxw=="],
+
+    "openid-client": ["openid-client@5.6.4", "", { "dependencies": { "jose": "^4.15.4", "lru-cache": "^6.0.0", "object-hash": "^2.2.0", "oidc-token-hash": "^5.0.3" } }, "sha512-T1h3B10BRPKfcObdBklX639tVz+xh34O7GjofqrqiAQdm7eHsQ00ih18x6wuJ/E6FxdtS2u3FmUGPDeEcMwzNA=="],
+
+    "sst": ["sst@4.5.8", "", { "dependencies": { "aws4fetch": "1.0.18", "jose": "5.2.3", "openid-client": "5.6.4" }, "optionalDependencies": { "sst-darwin-arm64": "4.5.8", "sst-darwin-x64": "4.5.8", "sst-linux-arm64": "4.5.8", "sst-linux-x64": "4.5.8", "sst-linux-x86": "4.5.8", "sst-win32-arm64": "4.5.8", "sst-win32-x64": "4.5.8", "sst-win32-x86": "4.5.8" }, "bin": { "sst": "bin/sst.mjs" } }, "sha512-yJt63pWo7muN+ca9US1Dg9YdKSYCS9d5X4WLUF12VX12g7QJPsFlCeGLR0vtLv9b4VZy62gwSlpUlHmjNoq9fA=="],
+
+    "sst-darwin-arm64": ["sst-darwin-arm64@4.5.8", "", { "os": "darwin", "cpu": "arm64" }, "sha512-ZwQJBLXxNXswXbALsUGPplZ3kk/qGEqw6QVgzCWA9EdET/SbGl1sMGagqYkaZSo+/95fkzbOLtvLudVl710cyw=="],
+
+    "sst-darwin-x64": ["sst-darwin-x64@4.5.8", "", { "os": "darwin", "cpu": "x64" }, "sha512-DwwTxq4j1gceZx7RiaAAej4Ew23qXKVd8TCHu/VovLkX3QMF9GyLpCmk8UtAt1Z5mjP9H2PX7a4ABEhnL1np/Q=="],
+
+    "sst-linux-arm64": ["sst-linux-arm64@4.5.8", "", { "os": "linux", "cpu": "arm64" }, "sha512-VoXXT1C/uZN/mpqvborUjbIM1ZubOA3eV2uCjuC0y2in/zdmKkANX8CW75z6au4qFasorySSlV7SL2MIe/gyXA=="],
+
+    "sst-linux-x64": ["sst-linux-x64@4.5.8", "", { "os": "linux", "cpu": "x64" }, "sha512-BEp28HOkt4WonumLbi1dZ8XiSxCV73xfyCL3K7wfGYHe46uQAZqO4fQ+k7sWkTjlkDGdfCTNzTPncihFTmtlYg=="],
+
+    "sst-linux-x86": ["sst-linux-x86@4.5.8", "", { "os": "linux", "cpu": "none" }, "sha512-hfvM6647u9AsHKARz+61mNgkrLj+LORLQR1WVrNl0s27BGKnqMEuoadsqkqYcUOcpzEy6oUgxbNSm+gLPJ1yUg=="],
+
+    "sst-win32-arm64": ["sst-win32-arm64@4.5.8", "", { "os": "win32", "cpu": "arm64" }, "sha512-UslCx2WVpZccasZiy9r4xfB9TwLxs4cPXBCTdqhL+ILleamS0alPhAbalj7wKYHcKZTNA+VEIZZ2bXph4Xrk+g=="],
+
+    "sst-win32-x64": ["sst-win32-x64@4.5.8", "", { "os": "win32", "cpu": "x64" }, "sha512-bZrPQbs60ucUDMoagenq93PSZowvKMDDqsI18CkSc6wpV4HsLoPCwtPkAnV/lfW0Paxx8aBFmqA3xY3BzJRUQw=="],
+
+    "sst-win32-x86": ["sst-win32-x86@4.5.8", "", { "os": "win32", "cpu": "none" }, "sha512-gDPMTh26dHmj/dEB0tMUixanqwvBHHIkFNoOuG9d/IV3YtkWq8iytCH2pcaEcpcd7S/0P2RhNNBtx07ojeZf7g=="],
+
     "undici-types": ["undici-types@7.18.2", "", {}, "sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w=="],
+
+    "yallist": ["yallist@4.0.0", "", {}, "sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A=="],
+
+    "openid-client/jose": ["jose@4.15.9", "", {}, "sha512-1vUQX+IdDMVPj4k8kOxgUqlcK518yluMuGZwqlr44FS1ppZB/5GWh4rZG89erpOBOJjU/OBsnCVFfapsRz6nEA=="],
   }
 }

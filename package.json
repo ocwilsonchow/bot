@@ -4,9 +4,11 @@
     "dev": "bun run --hot src/index.ts"
   },
   "dependencies": {
-    "hono": "^4.12.9"
+    "hono": "^4.12.9",
+    "sst": "4.5.8"
   },
   "devDependencies": {
+    "@types/aws-lambda": "8.10.161",
     "@types/bun": "latest"
   }
 }
