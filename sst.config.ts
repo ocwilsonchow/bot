@@ -13,6 +13,7 @@ const HONO_ENV_KEYS = [
   "DISCORD_MENTION_ROLE_IDS",
   "CRON_SECRET",
   "REDIS_URL",
+  "AI_GATEWAY_API_KEY",
 ] as const
 
 function honoEnvironment(): Record<string, string> {
@@ -47,16 +48,19 @@ export default $config({
     const DISCORD_APPLICATION_ID = new sst.Secret("DISCORD_APPLICATION_ID")
     const CRON_SECRET = new sst.Secret("CRON_SECRET")
     const REDIS_URL = new sst.Secret("REDIS_URL")
+    const AI_GATEWAY_API_KEY = new sst.Secret("AI_GATEWAY_API_KEY")
 
-    // Lambda function
+    // Lambda function (/discord/gateway keeps a Discord WS open for durationMs in src/routes/discord.ts)
     const hono = new sst.aws.Function("Hono", {
       handler: "src/lambda.handler",
+      timeout: "15 minutes",
       link: [
         CRON_SECRET,
         DISCORD_BOT_TOKEN,
         DISCORD_PUBLIC_KEY,
         DISCORD_APPLICATION_ID,
         REDIS_URL,
+        AI_GATEWAY_API_KEY,
       ],
     })
 
@@ -72,13 +76,15 @@ export default $config({
     // Cron Function
     const cron = new sst.aws.Function("Cron", {
       handler: "src/cron.handler",
-      link: [CRON_SECRET],
+      link: [CRON_SECRET]
     })
 
-    // Cron Job to keep the API Gateway alive
+    // Refresh gateway after listener ends (must be > discord route durationMs to avoid two sessions / one token).
+    // Verify in CloudWatch: one listener start per cron tick, not a second login while the prior 10m window should still run.
     new sst.aws.CronV2("CronJob", {
       function: cron.arn,
-      schedule: "rate(9 minutes)", // Run every 9 minutes
+      // EventBridge `rate()` only supports minutes/hours/days (not seconds). Minimum is 1 minute.
+      schedule: "rate(11 minutes)",
     })
   },
 })

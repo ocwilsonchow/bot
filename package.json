@@ -4,6 +4,7 @@
     "sso": "aws sso login --sso-session=sinlongchow",
     "dev": "bun run --hot src/index.ts",
     "sst:dev": "bunx sst dev --stage dev",
+    "start:gateway": "bunx sst shell --stage dev -- bun scripts/start-gateway.ts",
     "sst:remove": "bunx sst remove --stage dev"
   },
   "dependencies": {
@@ -11,6 +12,7 @@
     "@chat-adapter/slack": "^4.22.0",
     "@chat-adapter/state-redis": "^4.22.0",
     "@vercel/functions": "^3.4.3",
+    "ai": "^6.0.141",
     "chat": "^4.22.0",
     "hono": "^4.12.9",
     "sst": "4.5.8"
